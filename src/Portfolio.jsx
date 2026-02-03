@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Mail, Phone, Github, Linkedin, ExternalLink } from 'lucide-react';
+import { Menu, X, Mail, Phone, ExternalLink } from 'lucide-react';
 
 const Portfolio = () => {
   const [currentPage, setCurrentPage] = useState('home');
@@ -75,35 +75,10 @@ const Portfolio = () => {
           right: 0;
           padding: 2rem 4rem;
           display: flex;
-          justify-content: space-between;
+          justify-content: center;
           align-items: center;
           z-index: 1000;
           background: linear-gradient(to bottom, var(--paper-white) 80%, transparent);
-        }
-
-        .logo {
-          font-family: 'Crimson Pro', serif;
-          font-size: 1.5rem;
-          font-weight: 700;
-          letter-spacing: -0.05em;
-          position: relative;
-        }
-
-        .logo::after {
-          content: '';
-          position: absolute;
-          bottom: -4px;
-          left: 0;
-          width: 100%;
-          height: 3px;
-          background: var(--ink-black);
-          transform: scaleX(0);
-          transform-origin: left;
-          transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .logo:hover::after {
-          transform: scaleX(1);
         }
 
         .nav-links {
@@ -149,6 +124,8 @@ const Portfolio = () => {
           border: none;
           cursor: pointer;
           padding: 0.5rem;
+          position: absolute;
+          right: 2rem;
         }
 
         /* Page container */
@@ -611,9 +588,6 @@ const Portfolio = () => {
 
       {/* Navigation */}
       <nav>
-        <div className="logo" onClick={() => setCurrentPage('home')} style={{ cursor: 'pointer' }}>
-          OK
-        </div>
         <ul className="nav-links">
           {navigation.map(item => (
             <li key={item.id}>
@@ -851,18 +825,6 @@ const ContactPage = () => {
           <div className="contact-item">
             <Phone />
             <a href="tel:+46767909094">+46 076-7909094</a>
-          </div>
-          <div className="contact-item">
-            <Github />
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
-              GitHub Profile
-            </a>
-          </div>
-          <div className="contact-item">
-            <Linkedin />
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
-              LinkedIn Profile
-            </a>
           </div>
         </div>
       </div>
