@@ -442,41 +442,48 @@ const Portfolio = () => {
         }
 
         /* Contact Page */
-        .contact-container {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 6rem;
-          align-items: start;
+        .contact-container-centered {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 60vh;
         }
 
-        .contact-info h2 {
+        .contact-info-centered {
+          max-width: 800px;
+          text-align: center;
+        }
+
+        .contact-info-centered h2 {
           font-family: 'Crimson Pro', serif;
-          font-size: 3.5rem;
+          font-size: 4rem;
           font-weight: 700;
           margin-bottom: 2rem;
           line-height: 1.2;
         }
 
-        .contact-info p {
-          font-size: 1.2rem;
+        .contact-info-centered p {
+          font-size: 1.3rem;
           line-height: 1.8;
           color: var(--soft-gray);
-          margin-bottom: 3rem;
+          margin-bottom: 4rem;
         }
 
         .contact-methods {
           display: flex;
           flex-direction: column;
           gap: 2rem;
+          align-items: center;
         }
 
         .contact-item {
           display: flex;
           align-items: center;
           gap: 1.5rem;
-          padding: 1.5rem;
+          padding: 1.5rem 2rem;
           border-left: 3px solid var(--ink-black);
           transition: all 0.3s;
+          min-width: 400px;
         }
 
         .contact-item:hover {
@@ -493,47 +500,7 @@ const Portfolio = () => {
           color: var(--ink-black);
           text-decoration: none;
           font-weight: 600;
-        }
-
-        .contact-form {
-          background: linear-gradient(135deg, var(--paper-white) 0%, #f5f5f5 100%);
-          padding: 3rem;
-          border: 2px solid var(--border-gray);
-        }
-
-        .form-group {
-          margin-bottom: 2rem;
-        }
-
-        .form-group label {
-          display: block;
-          margin-bottom: 0.5rem;
-          font-weight: 600;
-          text-transform: uppercase;
-          font-size: 0.85rem;
-          letter-spacing: 0.1em;
-        }
-
-        .form-group input,
-        .form-group textarea {
-          width: 100%;
-          padding: 1rem;
-          border: 2px solid var(--border-gray);
-          background: var(--paper-white);
-          font-family: 'Space Mono', monospace;
-          font-size: 1rem;
-          transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-          outline: none;
-          border-color: var(--ink-black);
-        }
-
-        .form-group textarea {
-          resize: vertical;
-          min-height: 150px;
+          font-size: 1.1rem;
         }
 
         /* Responsive */
@@ -547,8 +514,7 @@ const Portfolio = () => {
           }
 
           .home-hero,
-          .about-content,
-          .contact-container {
+          .about-content {
             grid-template-columns: 1fr;
             gap: 3rem;
           }
@@ -564,6 +530,10 @@ const Portfolio = () => {
           .mobile-menu-btn {
             display: block;
           }
+
+          .contact-item {
+            min-width: 300px;
+          }
         }
 
         @media (max-width: 768px) {
@@ -572,7 +542,7 @@ const Portfolio = () => {
           }
 
           .about-intro h2,
-          .contact-info h2 {
+          .contact-info-centered h2 {
             font-size: 2.5rem;
           }
 
@@ -582,6 +552,15 @@ const Portfolio = () => {
 
           .skills-grid {
             grid-template-columns: 1fr;
+          }
+
+          .contact-item {
+            min-width: auto;
+            width: 100%;
+          }
+
+          .contact-info-centered p {
+            font-size: 1.1rem;
           }
         }
       `}</style>
@@ -810,8 +789,8 @@ const ProjectsPage = () => {
 
 const ContactPage = () => {
   return (
-    <div className="contact-container">
-      <div className="contact-info">
+    <div className="contact-container-centered">
+      <div className="contact-info-centered">
         <h2>Let's Connect</h2>
         <p>
           I'm always interested in discussing new opportunities, collaborations, 
@@ -827,23 +806,6 @@ const ContactPage = () => {
             <a href="tel:+46767909094">+46 076-7909094</a>
           </div>
         </div>
-      </div>
-      <div className="contact-form">
-        <form>
-          <div className="form-group">
-            <label htmlFor="name">Name</label>
-            <input type="text" id="name" name="name" required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
-          </div>
-          <button type="submit" className="btn btn-secondary">Send Message</button>
-        </form>
       </div>
     </div>
   );
